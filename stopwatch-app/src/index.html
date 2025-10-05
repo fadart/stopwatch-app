@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stopwatch App</title>
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 class="visually-hidden">Stopwatch App</h1>
+    <div class="header-controls">
+      <button id="themeToggle" aria-label="Toggle theme">🌙</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="stopwatch-card" aria-labelledby="stopwatch-title">
+      <div class="stopwatch-top">
+        <h2 id="stopwatch-title">Stopwatch</h2>
+      </div>
+
+      <!-- Display -->
+      <div id="display" class="display" role="timer" aria-live="polite">00:00:00.00</div>
+
+      <!-- Controls -->
+      <div class="controls" role="group" aria-label="Stopwatch controls">
+        <button id="startBtn" class="btn start">Start</button>
+        <button id="stopBtn" class="btn stop" disabled>Stop</button>
+        <button id="lapBtn" class="btn lap" disabled>Lap</button>
+        <button id="resetBtn" class="btn reset" disabled>Reset</button>
+      </div>
+
+      <!-- Laps -->
+      <section class="laps-section" aria-labelledby="laps-title">
+        <h3 id="laps-title">Laps</h3>
+        <ol id="lapsList" class="laps-list" aria-live="polite"></ol>
+      </section>
+    </section>
+  </main>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+
+/*  Variables for light/dark themes */
+:root{
+  --bg: #ffffff;
+  --card-bg: #fbfdff;
+  --text: #121212;
+  --muted: #555555;
+  --accent: #1f6feb;      /* buttons */
+  --accent-strong: #1558b7;
+  --btn-bg: #ffd966;
+  --card-radius: 14px;
+  --glass: rgba(0,0,0,0.04);
+  --shadow: 0 6px 20px rgba(17,24,39,0.08);
+}
+
+/* Dark theme variables */
+[data-theme="dark"]{
+  --bg: #121317;
+  --card-bg: #191a1d;
+  --text: #f5f7fa;
+  --muted: #b7bcc4;
+  --accent: #4ea3ff;
+  --accent-strong: #2b82ff;
+  --btn-bg: #ffcc66;
+  --glass: rgba(255,255,255,0.03);
+  --shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+/* Base reset */
+* { box-sizing: border-box; }
+html,body { height:100%; }
+body{
+  margin:0;
+  font-family: system-ui, i want to chane -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  transition: background .25s ease, color .25s ease;
+}
+
+/* Visually hidden utility for accessibility */
+.visually-hidden{
+  position: absolute !important;
+  height:1px; width:1px;
+  overflow:hidden;
+  clip: rect(1px,1px,1px,1px);
+  white-space:nowrap;
+}
+
+/* Header */
+.site-header{
+  display:flex;
+  justify-content:flex-end;
+  padding:12px 20px;
+  gap:12px;
+  align-items:center;
+}
+.header-controls{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+#themeToggle{
+  border: none;
+  background: transparent;
+  cursor:pointer;
+  font-size:1.1rem;
+  color:var(--muted);
+  padding:6px;
+}
+.about-link{
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:600;
+}
+
+/* Main centered app container */
+.app{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+/* Stopwatch card */
+.stopwatch-card{
+  width:100%;
+  max-width:700px;
+  background:var(--card-bg);
+  border-radius:var(--card-radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: background .25s, box-shadow .25s;
+}
+
+/* Top title */
+.stopwatch-top h2{
+  margin:0 0 8px 0;
+  text-align:center;
+  font-size:1.25rem;
+  color:var(--accent-strong);
+}
+
+/* Digital display styling */
+.display{
+  font-family: 'Roboto', 'Courier New', monospace;
+  text-align:center;
+  font-size:3.2rem;
+  letter-spacing:3px;
+  background: var(--glass);
+  margin: 14px auto 22px auto;
+  padding:20px 18px;
+  border-radius:10px;
+  width:fit-content;
+  min-width:320px;
+  color:var(--text);
+  box-shadow: inset 0 -6px 18px rgba(0,0,0,0.02);
+}
+
+/* Controls area (grid for responsive layout) */
+.controls{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+/* Buttons */
+.btn{
+  border: none;
+  cursor: pointer;
+  padding:12px 22px;
+  font-weight:700;
+  border-radius:10px;
+  transition: transform .12s ease, box-shadow .12s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+}
+
+/* Start primary btn */
+.btn.start{
+  background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+  color:white;
+}
+.btn.start:hover{ transform:translateY(-3px); }
+
+/* Stop */
+.btn.stop{
+  background: #ef4444;
+  color: white;
+}
+.btn.stop:hover{ transform:translateY(-3px); }
+
+/* Lap */
+.btn.lap{
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.08);
+  color:var(--text);
+  padding:10px 16px;
+}
+.btn.lap:hover{ box-shadow:0 6px 18px rgba(0,0,0,0.08); transform:translateY(-2px); }
+
+/* Reset */
+.btn.reset{
+  background: var(--btn-bg);
+  color:#1f1f1f;
+}
+.btn.reset:hover{ transform:translateY(-3px); }
+
+/* Disabled state */
+button:disabled{
+  opacity:0.45;
+  cursor:not-allowed;
+  transform:none;
+  box-shadow:none;
+}
+
+/* Laps list */
+.laps-section{
+  margin-top:6px;
+}
+.laps-section h3{
+  margin:6px 0 8px 0;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+.laps-list{
+  margin:0;
+  padding-left:1.1rem;
+  max-height:180px;
+  overflow:auto;
+  line-height:1.6;
+}
+.laps-list li{
+  padding:8px 10px;
+  border-radius:8px;
+  margin-bottom:8px;
+  background: rgba(0,0,0,0.03);
+  display:flex;
+  justify-content:space-between;
+  font-family: monospace;
+}
+
+/* Responsive adjustments */
+@media (max-width:520px){
+  .display{ font-size:2rem; min-width:260px; padding:14px; }
+  .btn{ padding:10px 14px; border-radius:8px; font-size:0.95rem; }
+  .stopwatch-card{ padding:18px; }
+}
