@@ -40,7 +40,7 @@ stopwatch-app
 ## Instructions for Use
 1. Clone or download the repository
 
-git clone https://github.com/your-username/stopwatch-app.git
+   git clone https://github.com/fadart/stopwatch-app/edit/main/stopwatch-ap
 
 2. Open the folder in your preferred editor (like VS Code).
 3. Double-click on index.html to open it in your browser.
